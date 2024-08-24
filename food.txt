@@ -1,0 +1,19 @@
+CREATE DATABASE food
+    WITH
+    OWNER = postgres
+    ENCODING = 'UTF8'
+    CONNECTION LIMIT = -1
+    IS_TEMPLATE = False;
+
+CREATE TABLE foods (
+	id SERIAL PRIMARY KEY,
+	title VARCHAR(256) NOT NULL,
+	image VARCHAR(256) NOT NULL,
+	price FLOAT NOT NULL
+);
+
+INSERT INTO foods (title, image, price) VALUES ('Whopper','https://d3sn2rlrwxy0ce.cloudfront.net/whopper-duplo-thumb.png?mtime=20210916131816&focal=none',24.90),
+('Rei-bacon','https://d3sn2rlrwxy0ce.cloudfront.net/Mega-Stacker-cheddar-3.0-thumb-cupom-m-d_2022-07-21-170304_esmv.png?mtime=20220721170304&focal=none',19.90),
+('Big King','https://d3sn2rlrwxy0ce.cloudfront.net/big-king-thumb.png?mtime=20210916134350&focal=none',21.90),
+('Bacon-Bacon', 'https://d3sn2rlrwxy0ce.cloudfront.net/Cheeseburger_duplo-thumb.png?mtime=20230202110227&focal=none', 17.90),
+('Burg-Jr','https://d3sn2rlrwxy0ce.cloudfront.net/kids-burger-thumb.png?mtime=20210916101534&focal=none',10.90);
