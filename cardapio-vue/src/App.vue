@@ -51,7 +51,9 @@ const submitEdit = () => {
 
 <template>
   <body>
-    <h1>Cardápio do BK 👑</h1>
+    <div>
+      <h1>Cardápio do BK 👑</h1>
+    </div>
 
     <div class="grid" v-if="foods.length > 0">
       <Card
@@ -71,19 +73,16 @@ const submitEdit = () => {
       <div class="modal-boby">
         <h3>Editar Lanche</h3>
         <form @submit.prevent="submitEdit">
-          <input v-model="selectedFood.title" title="Nome" type="text" />
-          <input
-            v-model="selectedFood.image"
-            title="URL de uma Imagem"
-            type="text"
-          />
-          <input
-            v-model.number="selectedFood.price"
-            title="Preço"
-            type="number"
-          />
-          <button type="button" @click="closeModal">Cancelar</button>
-          <button type="submit">Salvar</button>
+          <label for="title" id="title">Nome</label>
+          <input v-model="selectedFood.title" title="Nome" id="title" />
+          <label for="image">URL da imagem</label>
+          <input v-model="selectedFood.image" id="image" type="text" />
+          <label for="price">Preço</label>
+          <input v-model.number="selectedFood.price" id="price" type="number" />
+          <div class="form-buttons">
+            <button type="button" @click="closeModal">Cancelar</button>
+            <button type="submit">Salvar</button>
+          </div>
         </form>
       </div>
     </dialog>
@@ -126,5 +125,27 @@ dialog[data-modal] {
   max-width: 300px;
   margin: auto;
   text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 40vw;
+}
+
+label {
+  text-align: start;
+}
+
+input {
+  margin-bottom: 1rem;
+}
+
+.form-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  gap: 1rem;
+  width: 100%;
 }
 </style>
